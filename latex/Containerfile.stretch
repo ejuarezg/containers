@@ -1,0 +1,6 @@
+FROM docker.io/debian:stretch-slim
+COPY install_texlive_without_docs_py2.py /tmp/
+RUN apt-get update && apt-get install -y make python \
+    && /usr/bin/python2 /tmp/install_texlive_without_docs_py2.py \
+    && apt-get install -y biber latexmk \
+    && rm -rf /var/lib/apt/lists/*

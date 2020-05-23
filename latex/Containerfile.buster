@@ -1,0 +1,6 @@
+FROM docker.io/debian:buster-slim
+COPY install_texlive_without_docs.py /tmp/
+RUN apt-get update && apt-get install -y make python3 \
+    && /usr/bin/python3 /tmp/install_texlive_without_docs.py \
+    && apt-get install -y biber latexmk \
+    && rm -rf /var/lib/apt/lists/*
