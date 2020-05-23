@@ -30,6 +30,12 @@ To run container, use
 podman run --rm --network host --name airserver -d airserver:1.0
 ```
 
+To stop container, use
+
+```sh
+podman stop airserver
+```
+
 ## Connect to TCP stream
 
 After starting the container, connect to the TCP stream by using either of the
