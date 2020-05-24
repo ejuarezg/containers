@@ -1,10 +1,10 @@
 # Arch Linux makepkg environment
 
-This files in this folder are forked from the [docker-makepkg](https://github.com/WhyNotHugo/docker-makepkg)
+The files in this folder are forked from the [docker-makepkg](https://github.com/WhyNotHugo/docker-makepkg)
 repo.
 
-This container is intended to tests `PKGBUILDs`, by installing dependencies
-and running `makepkg -f` in a clean Arch installation.
+This container is intended to test `PKGBUILDs` by installing dependencies and
+running `makepkg -f` in a clean Arch installation.
 
 This fork builds the package with the number of cores returned by `$(nproc)`
 and compresses it using ZSTD. The script `run.sh` is changed to a bash script
@@ -20,7 +20,7 @@ podman build -t makepkg:Containerfile . -f Containerfile
 
 ### Run
 
-Use either of the two following commands.
+Use either of the following commands.
 
 ```
 # This does not export the built package
