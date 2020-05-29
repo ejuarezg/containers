@@ -3,9 +3,9 @@
 ## Introduction
 
 One of my favorite monospace fonts is
-[Iosevka](https://github.com/be5invis/Iosevka). Using a containarized build
-environment, we can make the process of building a custom style almost
-painless.
+[Iosevka](https://github.com/be5invis/Iosevka). A containarized build
+environment will ensure that you have all of the correct build tools installed
+without cluttering your system.
 
 These instructions apply to font versions 3.0.0 or higher and target a
 Linux-based OS.
@@ -36,11 +36,11 @@ Assuming you have Docker or podman installed on your computer, to create a
 containarized build environment, change into the folder of the Dockerfiles and
 run
 ```sh
-# Using podman
-podman build --format docker [optional build args] -t iosevka_build . -f Dockerfile
-
 # Using docker
 docker build [optional build args] -t  iosevka_build . -f Dockerfile
+
+# Using podman
+podman build --format docker [optional build args] -t iosevka_build . -f Dockerfile
 ```
 
 *NOTE:* Do not include `[optional build args]` when building the actual
@@ -70,9 +70,9 @@ the repo readme.
    it.
 1. Place a copy of the build plan in a subfolder called, for example,
    `build_dir`.
-1. Build the font with the command (replace podman with docker if necessary)
+1. Build the font with the command (replace docker with podman if necessary)
     ```sh
-    podman run -v ./build_dir:/build iosevka_build
+    docker run -v ./build_dir:/build iosevka_build
     ```
     Use the environment variable `FONT_VERSION` to specify the font version
     that you want to build. Otherwise the latest font version is built. You
@@ -80,12 +80,11 @@ the repo readme.
     Style*. For example, to only build the TTF files of version 3.0.1, we
     would run
     ```sh
-    podman run -e FONT_VERSION=3.0.1 -v ./build_dir:/build iosevka_build ttf::iosevka-custom
+    docker run -e FONT_VERSION=3.0.1 -v ./build_dir:/build iosevka_build ttf::iosevka-custom
     ```
     *NOTE:* If no custom build arguments are provided, the first build plan in
-    `private-build-plans.toml` is used. If you provide custom build arguments,
-    you must specify everything you would normally put after `npm run build
-    --`
+    `private-build-plans.toml` is used. Otherwise, you must specify everything
+    you would normally put after `npm run build--`.
 1. Once the font files are built, they will be placed in a folder called
    `dist` inside `build_dir`.
 
