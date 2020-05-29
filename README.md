@@ -14,6 +14,9 @@ This repo hosts an assortment of container files I use.
 ## Container descriptions
 
 - `airplay_server`: An airplay server programmed in Java.
+- `iosevka_font`: A build environment for building a favorite font of mine
+  called Iosevka. Also provided are some instructions for how to build without
+  a container.
 - `latex`: A less bloated LaTeX environment in Debian. Does not include
   documentation and other language packs besides English.
 - `makepkg`: An Arch Linux environment to build packages from PKGBUILD files.
