@@ -17,3 +17,8 @@ This repo hosts an assortment of container files I use.
 - `latex`: A less bloated LaTeX environment in Debian. Does not include
   documentation and other language packs besides English.
 - `makepkg`: An Arch Linux environment to build packages from PKGBUILD files.
+
+## Licensing
+
+Works in this repo are licensed under CC0 with a few exceptions. Exceptions
+contain a separate license file in their folder.
