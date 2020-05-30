@@ -29,7 +29,10 @@ RUN git clone https://aur.archlinux.org/yay-bin.git && \
     makepkg --noconfirm --syncdeps --rmdeps --install --clean
 
 # Configure /etc/makepkg.conf to use more cores and compress using ZSTD
-RUN sudo sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j\$(nproc)\"/g;s/COMPRESSZST=(zstd -c -z -q -)/COMPRESSZST=(zstd -c -T0 -18 -)/g;s/PKGEXT='.pkg.tar.xz'/PKGEXT='.pkg.tar.zst'/g" /etc/makepkg.conf
+RUN sudo sed -i -e "s/#MAKEFLAGS.*/MAKEFLAGS=\"-j\$(nproc)\"/" \
+    -e "s/COMPRESSZST.*/COMPRESSZST=(zstd -c -T0 -18 -)/" \
+    -e "s/PKGEXT.*/PKGEXT='.pkg.tar.zst'/" \
+    /etc/makepkg.conf
 
 # Build the package
 WORKDIR /pkg
