@@ -111,14 +111,58 @@ Copy the font files inside `dist` to `~/.local/share/fonts` and run `fc-cache`
 
 ## My font style
 
-I based my custom style off the Ubuntu Mono style. I used `variants.toml` in
-the source code to see the differences between styles. I also consulted the
-font repo readme to see what variants are enabled by default.
+I based my custom style off the Ubuntu Mono style. I used
+`params/variants.toml` in the source code to see the differences between
+styles. I also consulted the font repo readme to see what variants are enabled
+by default.
 
-My last build only changes lines 2-3 in `private-build-plans.sample.toml`. The
-modified lines are
+My last build uses the following `private-build-plans.toml`
 
 ```toml
+[buildPlans.miosevka]               # <miosevka> is your plan name. Font files will have this name.
 family = "Miosevka"
 design = ['sp-fixed', 'v-at-threefold', 'v-a-doublestorey', 'v-f-straight', 'v-i-italic', 'v-l-italic', 'v-m-shortleg', 'v-y-straight', 'v-brace-straight', 'v-one-base-serif', 'v-numbersign-slanted']
+# upright = ["upright-styles"]            # Uncomment this line to set styles for upright only
+# italic = ["italic-styles"]              # Uncomment this line to set styles for italic only
+# oblique = ["oblique-styles"]            # Uncomment this line to set styles for oblique only
+hintParams = ["-a", "sss"]                # Optional custom parameters for ttfautohint
+
+###################################################################################################
+# Override default building weights
+# Only build the following weights.
+
+[buildPlans.miosevka.weights.light]
+shape = 300
+menu  = 300
+css   = 300
+
+[buildPlans.miosevka.weights.regular]
+shape = 400  # Weight for glyph shapes.
+menu  = 400  # Weight for the font's names.
+css   = 400  # Weight for webfont CSS.
+
+[buildPlans.miosevka.weights.medium]
+shape = 500
+menu  = 500
+css   = 500
+
+[buildPlans.miosevka.weights.bold]
+shape = 700
+menu  = 700
+css   = 700
+
+# End weight section
+###################################################################################################
+
+###################################################################################################
+# Override default building widths
+# For a wide variant of this font, change shape value from 5 to 7.
+
+[buildPlans.miosevka.widths.normal]
+shape = 5          # Width grade of glyph shapes. NOT actual character width.
+menu  = 5          # Width grade for the font's names. NOT actual character width.
+css   = "normal"   # "font-stretch' property of webfont CSS.
+
+# End width section
+###################################################################################################
 ```
