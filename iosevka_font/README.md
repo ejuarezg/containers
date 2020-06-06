@@ -45,7 +45,7 @@ docker build [optional build args] -t  iosevka_build . -f Dockerfile
 podman build --format docker [optional build args] -t iosevka_build . -f Dockerfile
 ```
 
-*NOTE:* Do not include `[optional build args]` when building the actual
+**NOTE:** Do not include `[optional build args]` when building the actual
 container unless you know exactly what build arguments you want to use. For a
 list of build arguments, search for the `ARG` lines in the Dockerfiles. The
 build arguments are only used to download specific versions of the build
@@ -75,7 +75,7 @@ the repo readme.
    `build_dir`.
 1. Build the font with the command (replace docker with podman if necessary)
     ```sh
-    docker run -v ./build_dir:/build iosevka_build
+    docker run -it -v ./build_dir:/build iosevka_build
     ```
     Use the environment variable `FONT_VERSION` to specify the font version
     that you want to build. Otherwise the latest font version is built. You
@@ -83,11 +83,15 @@ the repo readme.
     Style*. For example, to only build the TTF files of version 3.0.1, we
     would run
     ```sh
-    docker run -e FONT_VERSION=3.0.1 -v ./build_dir:/build iosevka_build ttf::iosevka-custom
+    docker run -it -e FONT_VERSION=3.0.1 -v ./build_dir:/build iosevka_build ttf::iosevka-custom
     ```
-    *NOTE:* If no custom build arguments are provided, the first build plan in
-    `private-build-plans.toml` is used. Otherwise, you must specify everything
-    you would normally put after `npm run build--`.
+    **NOTES:**
+    - If no custom build arguments are provided, the first build plan in
+      `private-build-plans.toml` is used. Otherwise, you must specify
+      everything you would normally put after `npm run build--`.
+    - The `-it` option is used so that you can cancel the build by pressing `Ctrl+c` with your keyboard.
+    - The container is not removed automatically so that you can debug the
+      container.
 1. Once the font files are built, they will be placed in a folder called
    `dist` inside `build_dir`.
 
