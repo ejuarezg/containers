@@ -5,7 +5,9 @@
 One of my favorite monospace fonts is
 [Iosevka](https://github.com/be5invis/Iosevka). A containarized build
 environment will ensure that you have all of the correct build tools installed
-without cluttering your system.
+without cluttering your system. This guide provides instructions on how to
+build the Iosevka font in a container and also limited instructions on how
+to build the font without a container.
 
 These instructions apply to font versions 3.0.0 or higher and target a
 Linux-based OS.
@@ -63,6 +65,7 @@ the repo readme.
     cp private-build-plans.sample.toml private-build-plans.toml
     ```
    and edit the file.
+1. Following the remaining steps in *Build Your Own Style*.
 
 ### Container method
 

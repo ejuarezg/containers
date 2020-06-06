@@ -6,15 +6,18 @@
 #     -v ./build:/build \
 #     iosevka_build
 
-FROM ubuntu:20.04
+FROM debian:buster-slim
 
 ARG OTFCC_VER=0.10.4
 ARG PREMAKE_VER=5.0.0-alpha15
 ARG NODE_VER=14
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         build-essential \
+        file \
         curl \
+        ca-certificates \
         ttfautohint \
     && curl -sSL https://deb.nodesource.com/setup_${NODE_VER}.x | bash - \
     && apt-get install -y nodejs \
