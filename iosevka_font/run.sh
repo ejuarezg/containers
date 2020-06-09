@@ -16,14 +16,17 @@ fi
 echo "Downloading and checking the validity of the source code..."
 
 # Download source code
-curl -L -O --proto '=https' --tlsv1.2 -sS https://github.com/be5invis/Iosevka/archive/v${FONT_VERSION}.tar.gz
-
+if [ "$FONT_VERSION" == "dev" ]; then
+    curl -sSLo vdev.tar.gz --proto '=https' --tlsv1.2 https://github.com/be5invis/Iosevka/tarball/dev
+else
+    curl -sSLO --proto '=https' --tlsv1.2 https://github.com/be5invis/Iosevka/archive/v${FONT_VERSION}.tar.gz
+fi
 #  Check for valid downloaded file (build can fail here with exit code 1)
 file "v${FONT_VERSION}.tar.gz" | grep 'gzip compressed data' > /dev/null
 
 # Extract downloaded source code
 tar -xf v${FONT_VERSION}.tar.gz
-cd Iosevka-${FONT_VERSION}
+cd *Iosevka-*
 
 # Copy the build plan
 cp /build/private-build-plans.toml .

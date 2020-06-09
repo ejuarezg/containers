@@ -86,6 +86,8 @@ the repo readme.
     docker run -it -e FONT_VERSION=3.0.1 -v ./build_dir:/build iosevka_build ttf::iosevka-custom
     ```
     **NOTES:**
+    - Use `FONT_VERSION=dev` to build the bleeding edge code from the dev
+      branch.
     - If no custom build arguments are provided, the first build plan in
       `private-build-plans.toml` is used. Otherwise, you must specify
       everything you would normally put after `npm run build--`.
