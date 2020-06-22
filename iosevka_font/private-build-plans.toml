@@ -1,0 +1,145 @@
+#####################
+# My variant (for version 3.2.0 or higher)
+#####################
+
+[buildPlans.miosevka]
+family = "Miosevka"
+design = [
+    'sp-fixed',
+    'v-a-singlestorey',
+    'v-f-straight',
+    'v-i-hooky',
+    'v-k-curly',
+    'v-l-hooky',
+    'v-y-straight-turn',
+    'v-capital-g-toothless',
+    'v-one-base',
+    'v-four-open-non-crossing',
+    'v-lambda-curly',
+    'v-brace-straight',
+    'v-numbersign-slanted',
+    'v-dollar-open'
+]
+upright = ["upright-styles"]
+italic = ["italic-styles"]
+oblique = ["oblique-styles"]
+hintParams = ["-a", "sss"]
+
+##############################################################################
+# Override default building weights
+# When buildPlans.<plan name>.weights is absent, all weights would built and
+# mapped to default values.
+
+[buildPlans.miosevka.weights.light]
+shape = 300
+menu  = 300
+css   = 300
+
+[buildPlans.miosevka.weights.regular]
+shape = 400
+menu  = 400
+css   = 400
+
+[buildPlans.miosevka.weights.book]
+shape = 450
+menu  = 450
+css   = 450
+
+[buildPlans.miosevka.weights.medium]
+shape = 500
+menu  = 500
+css   = 500
+
+[buildPlans.miosevka.weights.bold]
+shape = 700
+menu  = 700
+css   = 700
+
+# End weight section
+##############################################################################
+
+##############################################################################
+# Override default building widths
+# When buildPlans.<plan name>.widths is absent, all widths would built and
+# mapped to default values.
+
+[buildPlans.miosevka.widths.normal]
+shape = 500
+menu  = 5
+css   = "normal"
+
+# End width section
+##############################################################################
+
+#####################
+# My wide variant (for version 3.2.0 or higher)
+#####################
+
+[buildPlans.miosevka-wide]
+family = "Miosevka Wide"
+design = [
+    'sp-fixed',
+    'v-a-singlestorey',
+    'v-f-straight',
+    'v-i-hooky',
+    'v-k-curly',
+    'v-l-hooky',
+    'v-y-straight-turn',
+    'v-capital-g-toothless',
+    'v-one-base',
+    'v-four-open-non-crossing',
+    'v-lambda-curly',
+    'v-brace-straight',
+    'v-numbersign-slanted',
+    'v-dollar-open'
+]
+upright = ["upright-styles"]
+italic = ["italic-styles"]
+oblique = ["oblique-styles"]
+hintParams = ["-a", "sss"]
+
+##############################################################################
+# Override default building weights
+# When buildPlans.<plan name>.weights is absent, all weights would built and
+# mapped to default values.
+
+[buildPlans.miosevka-wide.weights.light]
+shape = 350
+menu  = 350
+css   = 350
+
+[buildPlans.miosevka-wide.weights.regular]
+shape = 400
+menu  = 400
+css   = 400
+
+[buildPlans.miosevka-wide.weights.book]
+shape = 450
+menu  = 450
+css   = 450
+
+[buildPlans.miosevka-wide.weights.medium]
+shape = 500
+menu  = 500
+css   = 500
+
+[buildPlans.miosevka-wide.weights.bold]
+shape = 700
+menu  = 700
+css   = 700
+
+# End weight section
+##############################################################################
+
+##############################################################################
+# Override default building widths
+# When buildPlans.<plan name>.widths is absent, all widths would built and
+# mapped to default values.
+
+[buildPlans.miosevka-wide.widths.normal]
+shape = 576
+menu  = 7
+css   = "normal"
+
+# End width section
+##############################################################################
