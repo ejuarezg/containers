@@ -10,7 +10,7 @@ cd /tmp/build
 # set
 if [ ! -n "$FONT_VERSION" ]; then
     FONT_VERSION=$(curl -s https://github.com/be5invis/Iosevka/releases/latest \
-        | grep -Po '(?<=tag/v)[0-9,.]*')
+        | grep -Po '(?<=tag/v)[0-9.]*')
 fi
 
 echo "Downloading and checking the validity of the source code..."
@@ -21,6 +21,7 @@ if [ "$FONT_VERSION" == "dev" ]; then
 else
     curl -sSLO --proto '=https' --tlsv1.2 https://github.com/be5invis/Iosevka/archive/v${FONT_VERSION}.tar.gz
 fi
+
 #  Check for valid downloaded file (build can fail here with exit code 1)
 file "v${FONT_VERSION}.tar.gz" | grep 'gzip compressed data' > /dev/null
 
@@ -32,8 +33,9 @@ cd *Iosevka-*
 cp /build/private-build-plans.toml .
 
 # Build!
-echo "Commencing build of v${FONT_VERSION}..."
+echo "Commencing build of version ${FONT_VERSION}..."
 npm install
+
 if [ $# -eq 0 ]; then
     # Get the name of the first build plan when the user does not provide
     # custom build arguments (automatic mode)
