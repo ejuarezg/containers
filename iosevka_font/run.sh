@@ -7,7 +7,7 @@ mkdir /tmp/build
 cd /tmp/build
 
 # Find the latest font version if the font version environment variable is not
-# set
+# set. The `-n` operator checks if the length of the string is nonzero.
 if [ ! -n "$FONT_VERSION" ]; then
     FONT_VERSION=$(curl -s https://github.com/be5invis/Iosevka/releases/latest \
         | grep -Po '(?<=tag/v)[0-9.]*')
