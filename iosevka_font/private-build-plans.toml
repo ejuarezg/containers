@@ -1,5 +1,5 @@
 #####################
-# My variant (for version 3.2.0 or higher)
+# My variant (for version 3.4.0 or higher)
 #####################
 
 [buildPlans.miosevka]
@@ -11,6 +11,7 @@ design = [
     'v-i-hooky',
     'v-k-curly',
     'v-l-italic',
+    'v-t-flat-hook',
     'v-y-straight-turn',
     'v-capital-g-toothless',
     'v-one-base',
@@ -83,6 +84,7 @@ design = [
     'v-i-hooky',
     'v-k-curly',
     'v-l-italic',
+    'v-t-flat-hook',
     'v-y-straight-turn',
     'v-capital-g-toothless',
     'v-one-base',
