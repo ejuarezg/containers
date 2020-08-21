@@ -32,7 +32,9 @@ RUN git clone https://aur.archlinux.org/yay-bin.git && \
 RUN sudo sed -i -e "s/#MAKEFLAGS.*/MAKEFLAGS=\"-j\$(nproc)\"/" \
     -e "s/COMPRESSZST.*/COMPRESSZST=(zstd -c -T0 -18 -)/" \
     -e "s/PKGEXT.*/PKGEXT='.pkg.tar.zst'/" \
-    /etc/makepkg.conf
+    /etc/makepkg.conf && \
+    # Enable colored output and an easter egg for pacman
+    sudo sed -i "s/#Color/Color\nILoveCandy/" /etc/pacman.conf
 
 # Build the package
 WORKDIR /pkg
