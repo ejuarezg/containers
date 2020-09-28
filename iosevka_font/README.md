@@ -54,7 +54,7 @@ the Iosevka repo README.
     **Notes:**
     - If no custom build arguments are provided, the first build plan in
       `private-build-plans.toml` is used. Otherwise, you must specify
-      everything you would normally put after `npm run build--`.
+      everything you would normally put after `npm run build --`.
     - Use `FONT_VERSION=dev` to build the bleeding edge code from the dev
       branch.
     - The `-it` option is used so that you can cancel the build by pressing `Ctrl+c` with your keyboard.
