@@ -49,6 +49,11 @@ gst-launch-1.0 -v tcpclientsrc port=5002 ! h264parse ! avdec_h264 ! autovideosin
 ffplay -f h264 -codec:v h264 -i tcp://localhost:5002 -v debug
 ```
 
+Recently, on my Manjaro box, the first command has not been working due to the error `WARNING: erroneous pipeline: no element "avdec_h264"`. Instead, I use the modified command
+```
+gst-launch-1.0 -v tcpclientsrc port=5002 ! h264parse ! vah264dec ! autovideosink
+```
+
 ## Bugs
 
 - Cannot reconnect to stream after disconnecting (upstream bug).
