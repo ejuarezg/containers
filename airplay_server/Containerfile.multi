@@ -1,11 +1,12 @@
 FROM docker.io/gradle:jdk11 AS build
 USER gradle
-WORKDIR /home/gradle/project
+WORKDIR /home/gradle
 RUN git clone --depth 1 https://github.com/serezhka/java-airplay-server-examples.git \
     && cd java-airplay-server-examples/tcp-forwarder \
     && sed -i 's/server.name=srzhka/server.name=QuackPlay/' \
         src/main/resources/tcp-forwarder.properties \
     && gradle bootJar
+
 FROM docker.io/openjdk:11-jre-slim
-COPY --from=build /home/gradle/project/java-airplay-server-examples/tcp-forwarder/build/libs/tcp-forwarder-*.jar app.jar
+COPY --from=build /home/gradle/java-airplay-server-examples/tcp-forwarder/build/libs/tcp-forwarder-*.jar app.jar
 CMD ["java", "-jar", "/app.jar"]
