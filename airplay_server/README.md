@@ -11,9 +11,9 @@ need to modify the Containerfiles.
 
 ### Build
 
-**NOTE:** Before building image, you may wish to change the name of the
-airplay server by changing `QuackPlay` to something else in the line using
-`sed` in the Containerfile.
+**NOTE:** Before building image, you may wish to change the name of the airplay
+server by changing `QuackPlay` to something else in the Containerfile line that
+uses the `sed` command.
 
 The multistage Containerfile is recommended due to its smaller size. Build the
 image with
