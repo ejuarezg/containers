@@ -69,8 +69,8 @@ Copy the subfolders inside `dist` to `~/.local/share/fonts` and run `fc-cache`
 
 ## Helpful links
 
-- https://github.com/be5invis/Iosevka
 - [Original Dockerfile](https://gist.github.com/tasuten/0431d8af3e7b5ad5bc5347ce2d7045d7)
+- https://github.com/be5invis/Iosevka
 - https://github.com/nodesource/distributions/blob/master/README.md
 - https://premake.github.io/download.html#v5
 - https://stackoverflow.com/questions/6482377/check-existence-of-input-argument-in-a-bash-shell-script
