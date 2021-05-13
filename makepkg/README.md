@@ -35,6 +35,7 @@ podman run -e EXPORT_PKG=1 -v $PWD:/pkg makepkg:Containerfile
 * `base-devel` is preinstalled.
 * All `depends` will be installed (including AUR packages using [yay](https://github.com/Jguer/yay)).
 * GPG keys used to verify signatures are auto-fetched.
+* Packages installed during image creation are not updated when building a package. You may want to update image if errors arise due to old packages.
 
 ## Licence
 
