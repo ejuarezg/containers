@@ -13,7 +13,7 @@ This repo hosts an assortment of container files I use.
 
 ## Container descriptions
 
-- `airplay_server`: An airplay server programmed in Java.
+- `airplay_server`: An airplay server programmed in Java. I **no longer recommend** using this container. Use [rpiplay](https://github.com/FD-/RPiPlay) instead.
 - `iosevka_font`: A build environment for building a favorite font of mine
   called Iosevka.
 - `latex`: A less bloated LaTeX environment in Debian. Does not include
