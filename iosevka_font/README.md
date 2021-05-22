@@ -7,7 +7,7 @@ One of my favorite monospace fonts is
 environment will ensure that you have all of the correct build tools installed
 without cluttering your system. This guide provides instructions on how to build
 the Iosevka font in a Docker or podman container. **The container targets font
-versions 3.0.0 or higher.**
+version 3.** It has not been tested on versions 4 or higher. For these versions, see [this fork.](https://github.com/avivace/iosevka-docker)
 
 ## Set up build environment
 
