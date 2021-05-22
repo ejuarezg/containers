@@ -8,8 +8,9 @@
 
 FROM debian:buster-slim
 
+# TODO Is otfcc required for newer versions of font? Also, otfcc repo is now archived.
 ARG OTFCC_VER=0.10.4
-ARG PREMAKE_VER=5.0.0-alpha15
+ARG PREMAKE_VER=5.0.0-alpha16
 ARG NODE_VER=14
 
 RUN apt-get update \
