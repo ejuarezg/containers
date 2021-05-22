@@ -15,7 +15,7 @@ to avoid errors with hyphens in function names in the PKGBUILDs.
 ### Build
 
 ```sh
-podman build -t makepkg:Containerfile . -f Containerfile
+podman build -t makepkg . -f Containerfile
 ```
 
 ### Run
@@ -24,10 +24,10 @@ Use either of the following commands.
 
 ```
 # This does not export the built package
-podman run -v $PWD:/pkg makepkg:Containerfile
+podman run -v $PWD:/pkg makepkg
 
 # This exports the built package file to the working directory
-podman run -e EXPORT_PKG=1 -v $PWD:/pkg makepkg:Containerfile
+podman run -e EXPORT_PKG=1 -v $PWD:/pkg makepkg
 ```
 
 ## Extra details
