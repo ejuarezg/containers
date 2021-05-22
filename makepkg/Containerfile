@@ -27,14 +27,14 @@ RUN git clone https://aur.archlinux.org/yay-bin.git && \
     cd yay-bin && \
     makepkg --noconfirm --syncdeps --rmdeps --install --clean
 
-# Configure /etc/makepkg.conf to use more cores and compress using ZSTD
-RUN sudo sed -i -e "s/#MAKEFLAGS.*/MAKEFLAGS=\"-j\$(nproc)\"/" \
-    -e "s/COMPRESSZST.*/COMPRESSZST=(zstd -c -T0 -18 -)/" \
-    -e "s/PKGEXT.*/PKGEXT='.pkg.tar.zst'/" \
+# Configure /etc/makepkg.conf to use more cores and a higher compression ratio
+# using zstd
+RUN sudo sed -i -e 's/#MAKEFLAGS.*/MAKEFLAGS="-j$(($(nproc)+1))"/' \
+    -e 's/COMPRESSZST.*/COMPRESSZST=(zstd -c -z -T0 -18 -)/' \
     /etc/makepkg.conf && \
     # Enable colored output and an easter egg for pacman
-    sudo sed -i "s/#Color/Color\nILoveCandy/" /etc/pacman.conf
+    sudo sed -i 's/#Color/Color\nILoveCandy/' /etc/pacman.conf
 
 # Build the package
 WORKDIR /pkg
-CMD /bin/bash /run.sh
+CMD ["/bin/bash", "/run.sh"]
