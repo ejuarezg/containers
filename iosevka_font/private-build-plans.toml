@@ -1,5 +1,5 @@
 #####################
-# My variant (for version 3.4.0 or higher)
+# My variant (for version >=3.4.0 and <4)
 #####################
 
 [buildPlans.miosevka]
@@ -72,7 +72,7 @@ css   = "normal"
 ##############################################################################
 
 #####################
-# My wide variant (for version 3.2.0 or higher)
+# My wide variant
 #####################
 
 [buildPlans.miosevka-wide]
@@ -104,9 +104,9 @@ hintParams = ["-a", "sss"]
 # mapped to default values.
 
 [buildPlans.miosevka-wide.weights.light]
-shape = 350
-menu  = 350
-css   = 350
+shape = 300
+menu  = 300
+css   = 300
 
 [buildPlans.miosevka-wide.weights.regular]
 shape = 400
